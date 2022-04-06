@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<div class="container">
+
+    <form method = "POST">
+         {% csrf_token %}
+         <div class="col-lg-6">
+            <input type="text" class="form-control border border-5" name="name" placeholder="Book Name" value={{all_books_obj.name}}>
+        </div>
+        <div class="col-lg-6">
+            <input type="text" class="form-control border border-5" name="author" placeholder="Author Name" value={{all_books_obj.author}}>
+        </div>
+        <div class="col-lg-6">
+            <input type="text" class="form-control border border-5" name="studentno" placeholder="Student Id" value={{all_books_obj.studentno}}>
+        </div>
+        <div class="col-lg-6">
+            <input type="text" class="form-control border border-5" name="studentname" placeholder="Student Name" value={{all_books_obj.studentname}}>
+        </div>
+        <div class="col-lg-6">
+            <input type="text" class="form-control border border-5" name="issuedate" placeholder="Issue date" value={{all_books_obj.issuedate}}>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+      </form>
+
+{% endblock content%}

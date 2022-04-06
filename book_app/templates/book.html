@@ -1,0 +1,75 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    <title> Book_App </title>
+
+{% endblock title %}
+
+{% block  content %}
+
+
+
+
+    <div class="container ">
+
+        <form method = "POST">
+             {% csrf_token %}
+             <div class="col-lg-6 border border-5">
+                <input type="text" class="form-control" name="name" placeholder="Book Name">
+            </div>
+            <div class="col-lg-6 border border-5">
+                <input type="text" class="form-control" name="author" placeholder="Author Name">
+            </div>
+            <div class="col-lg-6 border border-5">
+              <input type="text" class="form-control" name="studentno" placeholder="Student Id">
+          </div>
+          <div class="col-lg-6 border border-5">
+            <input type="text" class="form-control" name="studentname" placeholder="Student Name">
+        </div>
+        <div class="col-lg-6 border border-5">
+          <input type="text" class="form-control" name="issuedate" placeholder="Issue date">
+      </div>
+            <div class="mb-3 ">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+          </form>
+          
+
+
+
+
+<table class="table table-bordered text-center">
+    <thead>
+      <tr class = "row">
+        <th class="col-2 border border-5">Student Id</th>
+        <th class="col-2 border border-5">Name Of The Book</th>
+        <th class="col-2 border border-5">Author Of The Book</th>
+        
+        <th class="col-2 border border-5">Student Name</th>
+        <th class="col-2 border border-5">Issue Date</th>
+        <th class="col-1 border border-5">Edit</th>
+        <th class="col-1 border border-5">Delete</th>
+      </tr>
+    </br>
+    </thead>
+    <tbody>
+            {% for obj in all_books%}
+
+                    <tr class="table-success row">
+                        {% comment %} <td class="col-1">{{ obj.id}}</td>{% comment%} "{{obj.id}}" to print the primary key {% endcomment %}                        
+                        <td class="col-2">{{ obj.studentno}}</td>
+                        <td class="col-2">{{ obj.name}}</td>     
+                        <td class="col-2">{{ obj.author}}</td>
+                        <td class="col-2">{{ obj.studentname}}</td>
+                        <td class="col-2">{{ obj.issuedate}}</td>
+                        <td class="col-1"><a href="{% url 'edit_book' obj.id %}"><button type="button" class="btn btn-danger">Edit</button></a> </td>
+                        <td class="col-1"><a href="{% url 'delete_book' obj.id %}"><button type="button" class="btn btn-danger">Delete</button></a> </td>
+
+                    </tr>
+            {% endfor %}  
+    </tbody>
+  </table>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+
+{% load static %}
+
+{% block title %}
+    <title> Home Page </title>
+
+{% endblock title %}
+
+{% block content%}
+        <div class = "container">
+    
+            <div class="row mt-5">
+        
+                <div class="col-lg-4 shadow-sm p-3 bg-body rounded">
+                    <img src="{% static 'images\images.jpg' %}" alt="Notes" width="360" height="250" >
+                </div>
+        
+                <div class="col-lg-4 shadow-sm p-3 bg-body rounded">
+                    <img src="{% static 'images\images1.jpeg' %}" alt="Notes" width="360" height="250" >
+                </div>
+        
+                <div class="col-lg-4 shadow-sm p-3 bg-body rounded">
+                    <img src="{% static 'images\qq.jpg' %}" alt="Notes" width="360" height="250">
+                </div>
+        
+            </div>
+        
+        
+            <div class="row mt-5">
+                <div class="col col-lg-1"></div>
+                <div class="col-md-10">
+                    <center><p class="h1" style="color:DodgerBlue">Library Management System</p></center>
+                </div>
+                <div class="col col-lg-1"></div>
+            </div>
+        
+            <center><a href="{% url 'book'%}"><button type="button" class="btn btn-primary btn-lg mt-5 shadow">Get Started</button></a></center>
+        
+        </div>
+
+{% endblock content%}

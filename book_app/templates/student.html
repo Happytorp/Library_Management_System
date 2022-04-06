@@ -1,0 +1,41 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    <title> Student Page </title>
+
+{% endblock title %}
+
+{% block  content %}
+
+<div class="container">
+
+<table class="table table-bordered text-center">
+    <thead>
+      <tr class = "row">
+        <th class="col-2 border border-5">Student Id</th>
+        <th class="col-3 border border-5">Name</th>
+        <th class="col-3 border border-5">Author</th>
+       
+        <th class="col-2 border border-5">Student Name</th>
+        <th class="col-2 border border-5">Issue date</th>
+      </tr>
+    </br>
+    </thead>
+    <tbody>
+            {% for obj in all_books%}
+
+                    <tr class="table-success row ">
+                      <td class="col-2 ">{{ obj.studentno}}</td>
+                        <td class="col-3 ">{{ obj.name}}</td>     
+                        <td class="col-3 ">{{ obj.author}}</td>
+                        
+                        <td class="col-2 ">{{ obj.studentname}}</td>
+                        <td class="col-2 ">{{ obj.issuedate}}</td>
+                    </tr>
+            {% endfor %}  
+    </tbody>
+  </table>
+</div>
+
+{% endblock content %}
